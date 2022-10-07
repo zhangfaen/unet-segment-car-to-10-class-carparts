@@ -25,12 +25,12 @@ python predict.py -i ./test-images-from-internet/test1.jpg  -o ./test-images-fro
 python predict.py -i ./test-images-from-internet/test3.jpg  -o ./test-images-from-internet/test3-output.jpg --model trained-models/unet-model-scale0.6-batchsize16.pth --bilinear --scale 0.6
 
 
-python predict.py -i ./test-images-from-internet/test3.jpg  -o ./test-images-from-internet/test3-output-adma.jpg --model trained-models/unet-model-scale0.5-batchsize16-Adam.pth --bilinear --scale 0.5
+python predict.py -i ./test-images-from-internet/test3.jpg  -o ./test-images-from-internet/test3-output-585samples.jpg --model trained-models/unet-model-scale0.6-batchsize16-585samples.pth --bilinear --scale 0.6
 
-python predict.py -i ./test-images-from-internet/test2.jpg  -o ./test-images-from-internet/test2-output-adma.jpg --model trained-models/unet-model-scale0.5-batchsize16-Adam.pth --bilinear --scale 0.5
+python predict.py -i ./test-images-from-internet/test2.jpg  -o ./test-images-from-internet/test2-output-585samples.jpg --model trained-models/unet-model-scale0.6-batchsize16-585samples.pth --bilinear --scale 0.6
 
 
-python predict.py -i ./test-images-from-internet/test1.jpg  -o ./test-images-from-internet/test1-output-adma.jpg --model trained-models/unet-model-scale0.5-batchsize16-Adam.pth --bilinear --scale 0.5
+python predict.py -i ./test-images-from-internet/test1.jpg  -o ./test-images-from-internet/test1-output-585samples.jpg --model trained-models/unet-model-scale0.6-batchsize16-585samples.pth --bilinear --scale 0.6
 ```
 
 The input images and target masks should be in the `data/imgs` and `data/masks` folders respectively (note that the `imgs` and `masks` folder should not contain any sub-folder or any other files, due to the greedy data-loader). For Carvana, images are RGB and masks are black and white.
