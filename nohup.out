@@ -1,0 +1,345 @@
+INFO: Using device cuda
+INFO: UNet(
+  (inc): DoubleConv(
+    (double_conv): Sequential(
+      (0): Conv2d(3, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      (1): BatchNorm2d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (2): ReLU()
+      (3): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      (4): BatchNorm2d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (5): ReLU()
+    )
+  )
+  (down1): Down(
+    (maxpool_conv): Sequential(
+      (0): MaxPool2d(kernel_size=2, stride=2, padding=0, dilation=1, ceil_mode=False)
+      (1): DoubleConv(
+        (double_conv): Sequential(
+          (0): Conv2d(64, 128, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+          (1): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (2): ReLU()
+          (3): Conv2d(128, 128, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+          (4): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (5): ReLU()
+        )
+      )
+    )
+  )
+  (down2): Down(
+    (maxpool_conv): Sequential(
+      (0): MaxPool2d(kernel_size=2, stride=2, padding=0, dilation=1, ceil_mode=False)
+      (1): DoubleConv(
+        (double_conv): Sequential(
+          (0): Conv2d(128, 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+          (1): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (2): ReLU()
+          (3): Conv2d(256, 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+          (4): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (5): ReLU()
+        )
+      )
+    )
+  )
+  (down3): Down(
+    (maxpool_conv): Sequential(
+      (0): MaxPool2d(kernel_size=2, stride=2, padding=0, dilation=1, ceil_mode=False)
+      (1): DoubleConv(
+        (double_conv): Sequential(
+          (0): Conv2d(256, 512, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+          (1): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (2): ReLU()
+          (3): Conv2d(512, 512, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+          (4): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (5): ReLU()
+        )
+      )
+    )
+  )
+  (down4): Down(
+    (maxpool_conv): Sequential(
+      (0): MaxPool2d(kernel_size=2, stride=2, padding=0, dilation=1, ceil_mode=False)
+      (1): DoubleConv(
+        (double_conv): Sequential(
+          (0): Conv2d(512, 512, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+          (1): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (2): ReLU()
+          (3): Conv2d(512, 512, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+          (4): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (5): ReLU()
+        )
+      )
+    )
+  )
+  (up1): Up(
+    (up): Upsample(scale_factor=2.0, mode=bilinear)
+    (conv): DoubleConv(
+      (double_conv): Sequential(
+        (0): Conv2d(1024, 512, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+        (1): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (2): ReLU()
+        (3): Conv2d(512, 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+        (4): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (5): ReLU()
+      )
+    )
+  )
+  (up2): Up(
+    (up): Upsample(scale_factor=2.0, mode=bilinear)
+    (conv): DoubleConv(
+      (double_conv): Sequential(
+        (0): Conv2d(512, 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+        (1): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (2): ReLU()
+        (3): Conv2d(256, 128, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+        (4): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (5): ReLU()
+      )
+    )
+  )
+  (up3): Up(
+    (up): Upsample(scale_factor=2.0, mode=bilinear)
+    (conv): DoubleConv(
+      (double_conv): Sequential(
+        (0): Conv2d(256, 128, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+        (1): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (2): ReLU()
+        (3): Conv2d(128, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+        (4): BatchNorm2d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (5): ReLU()
+      )
+    )
+  )
+  (up4): Up(
+    (up): Upsample(scale_factor=2.0, mode=bilinear)
+    (conv): DoubleConv(
+      (double_conv): Sequential(
+        (0): Conv2d(128, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+        (1): BatchNorm2d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (2): ReLU()
+        (3): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+        (4): BatchNorm2d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (5): ReLU()
+      )
+    )
+  )
+  (outc): OutConv(
+    (conv): Conv2d(64, 10, kernel_size=(1, 1), stride=(1, 1))
+  )
+)
+INFO: Network:
+	3 input channels
+	10 output channels (classes)
+	Bilinear upscaling
+INFO: Creating dataset with 585 examples
+wandb: Currently logged in as: zhangfaen. Use `wandb login --relogin` to force relogin
+wandb: - Waiting for wandb.init()...wandb: \ Waiting for wandb.init()...wandb: | Waiting for wandb.init()...wandb: / Waiting for wandb.init()...wandb: - Waiting for wandb.init()...wandb: \ Waiting for wandb.init()...wandb: | Waiting for wandb.init()...wandb: / Waiting for wandb.init()...wandb: - Waiting for wandb.init()...wandb: \ Waiting for wandb.init()...wandb: | Waiting for wandb.init()...wandb: / Waiting for wandb.init()...wandb: wandb version 0.13.4 is available!  To upgrade, please run:
+wandb:  $ pip install wandb --upgrade
+wandb: Tracking run with wandb version 0.13.3
+wandb: Run data is saved locally in /root/dev/unet-test/car-parts-seg/wandb/run-20221007_223158-25g35gn3
+wandb: Run `wandb offline` to turn off syncing.
+wandb: Syncing run feasible-field-29
+wandb: ⭐️ View project at https://wandb.ai/zhangfaen/U-Net
+wandb: 🚀 View run at https://wandb.ai/zhangfaen/U-Net/runs/25g35gn3
+INFO: Starting training:
+        Epochs:          10
+        Batch size:      16
+        Learning rate:   1e-05
+        Training size:   527
+        Validation size: 58
+        Checkpoints:     False
+        Device:          cuda
+        Images scaling:  0.6
+        Mixed Precision: False
+        Trained Model File: trained-models/unet-model-scale0.6-batchsize16-585samples.pth
+    
+Epoch 1/10:   0%|          | 0/527 [00:00<?, ?img/s]Epoch 1/10:   3%|▎         | 16/527 [00:03<01:56,  4.37img/s]Epoch 1/10:   3%|▎         | 16/527 [00:03<01:56,  4.37img/s, loss (batch)=3.22]Epoch 1/10:   6%|▌         | 32/527 [00:03<00:51,  9.67img/s, loss (batch)=3.22]Epoch 1/10:   6%|▌         | 32/527 [00:04<00:51,  9.67img/s, loss (batch)=3.17]Epoch 1/10:   9%|▉         | 48/527 [00:04<00:32, 14.83img/s, loss (batch)=3.17]Epoch 1/10:   9%|▉         | 48/527 [00:04<00:32, 14.83img/s, loss (batch)=3.1] 
+Validation round:   0%|          | 0/3 [00:00<?, ?batch/s][A
+Validation round:  33%|███▎      | 1/3 [00:00<00:01,  1.13batch/s][A
+Validation round:  67%|██████▋   | 2/3 [00:01<00:00,  2.16batch/s][A
+Validation round: 100%|██████████| 3/3 [00:01<00:00,  3.04batch/s][A
+                                                                  [AINFO: Validation Dice score: 0.888888955116272
+Epoch 1/10:  12%|█▏        | 64/527 [00:08<01:09,  6.65img/s, loss (batch)=3.1]Epoch 1/10:  12%|█▏        | 64/527 [00:09<01:09,  6.65img/s, loss (batch)=3.01]Epoch 1/10:  15%|█▌        | 80/527 [00:09<00:47,  9.46img/s, loss (batch)=3.01]Epoch 1/10:  15%|█▌        | 80/527 [00:09<00:47,  9.46img/s, loss (batch)=2.92]Epoch 1/10:  18%|█▊        | 96/527 [00:09<00:33, 12.71img/s, loss (batch)=2.92]Epoch 1/10:  18%|█▊        | 96/527 [00:09<00:33, 12.71img/s, loss (batch)=2.89]
+Validation round:   0%|          | 0/3 [00:00<?, ?batch/s][A
+Validation round:  33%|███▎      | 1/3 [00:00<00:01,  1.18batch/s][A
+Validation round:  67%|██████▋   | 2/3 [00:01<00:00,  2.22batch/s][A
+Validation round: 100%|██████████| 3/3 [00:01<00:00,  3.09batch/s][A
+                                                                  [AINFO: Validation Dice score: 0.888888955116272
+Epoch 1/10:  21%|██▏       | 112/527 [00:12<00:43,  9.61img/s, loss (batch)=2.89]Epoch 1/10:  21%|██▏       | 112/527 [00:12<00:43,  9.61img/s, loss (batch)=2.77]Epoch 1/10:  24%|██▍       | 128/527 [00:12<00:31, 12.64img/s, loss (batch)=2.77]Epoch 1/10:  24%|██▍       | 128/527 [00:12<00:31, 12.64img/s, loss (batch)=2.73]Epoch 1/10:  27%|██▋       | 144/527 [00:12<00:23, 16.01img/s, loss (batch)=2.73]Epoch 1/10:  27%|██▋       | 144/527 [00:13<00:23, 16.01img/s, loss (batch)=2.71]
+Validation round:   0%|          | 0/3 [00:00<?, ?batch/s][A
+Validation round:  33%|███▎      | 1/3 [00:00<00:01,  1.32batch/s][A
+Validation round:  67%|██████▋   | 2/3 [00:00<00:00,  2.42batch/s][A
+Validation round: 100%|██████████| 3/3 [00:01<00:00,  3.29batch/s][A
+                                                                  [AINFO: Validation Dice score: 0.7291666865348816
+Epoch 1/10:  30%|███       | 160/527 [00:15<00:32, 11.21img/s, loss (batch)=2.71]Epoch 1/10:  30%|███       | 160/527 [00:15<00:32, 11.21img/s, loss (batch)=2.64]Epoch 1/10:  33%|███▎      | 176/527 [00:15<00:24, 14.32img/s, loss (batch)=2.64]Epoch 1/10:  33%|███▎      | 176/527 [00:15<00:24, 14.32img/s, loss (batch)=2.61]Epoch 1/10:  36%|███▋      | 192/527 [00:16<00:18, 17.66img/s, loss (batch)=2.61]Epoch 1/10:  36%|███▋      | 192/527 [00:16<00:18, 17.66img/s, loss (batch)=2.57]
+Validation round:   0%|          | 0/3 [00:00<?, ?batch/s][A
+Validation round:  33%|███▎      | 1/3 [00:00<00:01,  1.25batch/s][A
+Validation round:  67%|██████▋   | 2/3 [00:00<00:00,  2.34batch/s][A
+Validation round: 100%|██████████| 3/3 [00:01<00:00,  3.24batch/s][A
+                                                                  [AINFO: Validation Dice score: 0.7291667461395264
+Epoch 1/10:  39%|███▉      | 208/527 [00:18<00:26, 11.82img/s, loss (batch)=2.57]Epoch 1/10:  39%|███▉      | 208/527 [00:18<00:26, 11.82img/s, loss (batch)=2.54]Epoch 1/10:  43%|████▎     | 224/527 [00:18<00:20, 14.94img/s, loss (batch)=2.54]Epoch 1/10:  43%|████▎     | 224/527 [00:19<00:20, 14.94img/s, loss (batch)=2.53]Epoch 1/10:  46%|████▌     | 240/527 [00:19<00:15, 18.26img/s, loss (batch)=2.53]Epoch 1/10:  46%|████▌     | 240/527 [00:19<00:15, 18.26img/s, loss (batch)=2.53]
+Validation round:   0%|          | 0/3 [00:00<?, ?batch/s][A
+Validation round:  33%|███▎      | 1/3 [00:00<00:01,  1.33batch/s][A
+Validation round:  67%|██████▋   | 2/3 [00:00<00:00,  2.45batch/s][A
+Validation round: 100%|██████████| 3/3 [00:01<00:00,  3.36batch/s][A
+                                                                  [AINFO: Validation Dice score: 0.835648238658905
+Epoch 1/10:  49%|████▊     | 256/527 [00:21<00:22, 12.27img/s, loss (batch)=2.53]Epoch 1/10:  49%|████▊     | 256/527 [00:21<00:22, 12.27img/s, loss (batch)=2.53]Epoch 1/10:  52%|█████▏    | 272/527 [00:22<00:16, 15.42img/s, loss (batch)=2.53]Epoch 1/10:  52%|█████▏    | 272/527 [00:22<00:16, 15.42img/s, loss (batch)=2.53]Epoch 1/10:  55%|█████▍    | 288/527 [00:22<00:12, 18.73img/s, loss (batch)=2.53]Epoch 1/10:  55%|█████▍    | 288/527 [00:22<00:12, 18.73img/s, loss (batch)=2.51]
+Validation round:   0%|          | 0/3 [00:00<?, ?batch/s][A
+Validation round:  33%|███▎      | 1/3 [00:00<00:01,  1.41batch/s][A
+Validation round:  67%|██████▋   | 2/3 [00:00<00:00,  2.54batch/s][A
+Validation round: 100%|██████████| 3/3 [00:01<00:00,  3.40batch/s][A
+                                                                  [AINFO: Validation Dice score: 0.835648238658905
+Epoch 1/10:  58%|█████▊    | 304/527 [00:24<00:18, 12.38img/s, loss (batch)=2.51]Epoch 1/10:  58%|█████▊    | 304/527 [00:25<00:18, 12.38img/s, loss (batch)=2.51]Epoch 1/10:  61%|██████    | 320/527 [00:25<00:13, 15.52img/s, loss (batch)=2.51]Epoch 1/10:  61%|██████    | 320/527 [00:25<00:13, 15.52img/s, loss (batch)=2.61]Epoch 1/10:  64%|██████▍   | 336/527 [00:25<00:10, 18.87img/s, loss (batch)=2.61]Epoch 1/10:  64%|██████▍   | 336/527 [00:25<00:10, 18.87img/s, loss (batch)=2.5] 
+Validation round:   0%|          | 0/3 [00:00<?, ?batch/s][A
+Validation round:  33%|███▎      | 1/3 [00:00<00:01,  1.52batch/s][A
+Validation round:  67%|██████▋   | 2/3 [00:00<00:00,  2.71batch/s][A
+Validation round: 100%|██████████| 3/3 [00:00<00:00,  3.62batch/s][A
+                                                                  [AINFO: Validation Dice score: 0.8171296119689941
+Epoch 1/10:  67%|██████▋   | 352/527 [00:27<00:13, 12.63img/s, loss (batch)=2.5]Epoch 1/10:  67%|██████▋   | 352/527 [00:28<00:13, 12.63img/s, loss (batch)=2.51]Epoch 1/10:  70%|██████▉   | 368/527 [00:28<00:10, 15.80img/s, loss (batch)=2.51]Epoch 1/10:  70%|██████▉   | 368/527 [00:28<00:10, 15.80img/s, loss (batch)=2.51]Epoch 1/10:  73%|███████▎  | 384/527 [00:28<00:07, 19.08img/s, loss (batch)=2.51]Epoch 1/10:  73%|███████▎  | 384/527 [00:29<00:07, 19.08img/s, loss (batch)=2.51]
+Validation round:   0%|          | 0/3 [00:00<?, ?batch/s][A
+Validation round:  33%|███▎      | 1/3 [00:00<00:01,  1.43batch/s][A
+Validation round:  67%|██████▋   | 2/3 [00:00<00:00,  2.58batch/s][A
+Validation round: 100%|██████████| 3/3 [00:01<00:00,  3.49batch/s][A
+                                                                  [AINFO: Validation Dice score: 0.7939815521240234
+Epoch 1/10:  76%|███████▌  | 400/527 [00:30<00:09, 12.75img/s, loss (batch)=2.51]Epoch 1/10:  76%|███████▌  | 400/527 [00:31<00:09, 12.75img/s, loss (batch)=2.54]Epoch 1/10:  79%|███████▉  | 416/527 [00:31<00:06, 15.95img/s, loss (batch)=2.54]Epoch 1/10:  79%|███████▉  | 416/527 [00:31<00:06, 15.95img/s, loss (batch)=2.52]Epoch 1/10:  82%|████████▏ | 432/527 [00:31<00:04, 19.27img/s, loss (batch)=2.52]Epoch 1/10:  82%|████████▏ | 432/527 [00:32<00:04, 19.27img/s, loss (batch)=2.52]
+Validation round:   0%|          | 0/3 [00:00<?, ?batch/s][A
+Validation round:  33%|███▎      | 1/3 [00:00<00:01,  1.23batch/s][A
+Validation round:  67%|██████▋   | 2/3 [00:00<00:00,  2.29batch/s][A
+Validation round: 100%|██████████| 3/3 [00:01<00:00,  3.19batch/s][A
+                                                                  [AINFO: Validation Dice score: 0.7291668653488159
+Epoch 1/10:  85%|████████▌ | 448/527 [00:34<00:06, 12.55img/s, loss (batch)=2.52]Epoch 1/10:  85%|████████▌ | 448/527 [00:34<00:06, 12.55img/s, loss (batch)=2.5] Epoch 1/10:  88%|████████▊ | 464/527 [00:34<00:04, 15.70img/s, loss (batch)=2.5]Epoch 1/10:  88%|████████▊ | 464/527 [00:34<00:04, 15.70img/s, loss (batch)=2.5]Epoch 1/10:  91%|█████████ | 480/527 [00:34<00:02, 19.03img/s, loss (batch)=2.5]Epoch 1/10:  91%|█████████ | 480/527 [00:35<00:02, 19.03img/s, loss (batch)=2.51]
+Validation round:   0%|          | 0/3 [00:00<?, ?batch/s][A
+Validation round:  33%|███▎      | 1/3 [00:00<00:01,  1.21batch/s][A
+Validation round:  67%|██████▋   | 2/3 [00:01<00:00,  2.26batch/s][A
+Validation round: 100%|██████████| 3/3 [00:01<00:00,  3.12batch/s][A
+                                                                  [AINFO: Validation Dice score: 0.6990742683410645
+Epoch 1/10:  94%|█████████▍| 496/527 [00:37<00:02, 12.32img/s, loss (batch)=2.51]Epoch 1/10:  94%|█████████▍| 496/527 [00:37<00:02, 12.32img/s, loss (batch)=2.5] Epoch 1/10:  97%|█████████▋| 512/527 [00:37<00:00, 15.44img/s, loss (batch)=2.5]Epoch 1/10:  97%|█████████▋| 512/527 [00:38<00:00, 15.44img/s, loss (batch)=2.48]Epoch 1/10: 100%|██████████| 527/527 [00:38<00:00, 17.79img/s, loss (batch)=2.48]Epoch 1/10: 100%|██████████| 527/527 [00:38<00:00, 17.79img/s, loss (batch)=2.54]
+Validation round:   0%|          | 0/3 [00:00<?, ?batch/s][A
+Validation round:  33%|███▎      | 1/3 [00:00<00:01,  1.52batch/s][A
+Validation round:  67%|██████▋   | 2/3 [00:00<00:00,  2.70batch/s][A
+Validation round: 100%|██████████| 3/3 [00:01<00:00,  3.57batch/s][A
+                                                                  [AINFO: Validation Dice score: 0.6504630446434021
+Epoch 1/10: 100%|██████████| 527/527 [00:40<00:00, 13.11img/s, loss (batch)=2.54]
+INFO: Trained model file trained-models/unet-model-scale0.6-batchsize16-585samples.pth saved!
+Epoch 2/10:   0%|          | 0/527 [00:00<?, ?img/s]Epoch 2/10:   3%|▎         | 16/527 [00:00<00:23, 21.43img/s]Epoch 2/10:   3%|▎         | 16/527 [00:01<00:23, 21.43img/s, loss (batch)=2.5]Epoch 2/10:   6%|▌         | 32/527 [00:01<00:17, 28.81img/s, loss (batch)=2.5]Epoch 2/10:   6%|▌         | 32/527 [00:01<00:17, 28.81img/s, loss (batch)=2.51]Epoch 2/10:   9%|▉         | 48/527 [00:01<00:14, 32.50img/s, loss (batch)=2.51]Epoch 2/10:   9%|▉         | 48/527 [00:01<00:14, 32.50img/s, loss (batch)=2.5] 
+Validation round:   0%|          | 0/3 [00:00<?, ?batch/s][A
+Validation round:  33%|███▎      | 1/3 [00:00<00:01,  1.49batch/s][A
+Validation round:  67%|██████▋   | 2/3 [00:00<00:00,  2.66batch/s][A
+Validation round: 100%|██████████| 3/3 [00:01<00:00,  3.56batch/s][A
+                                                                  [AINFO: Validation Dice score: 0.6134259700775146
+Epoch 2/10:  12%|█▏        | 64/527 [00:03<00:33, 14.02img/s, loss (batch)=2.5]Epoch 2/10:  12%|█▏        | 64/527 [00:03<00:33, 14.02img/s, loss (batch)=2.49]Epoch 2/10:  15%|█▌        | 80/527 [00:04<00:24, 18.13img/s, loss (batch)=2.49]Epoch 2/10:  15%|█▌        | 80/527 [00:04<00:24, 18.13img/s, loss (batch)=2.5] Epoch 2/10:  18%|█▊        | 96/527 [00:04<00:19, 22.06img/s, loss (batch)=2.5]Epoch 2/10:  18%|█▊        | 96/527 [00:04<00:19, 22.06img/s, loss (batch)=2.51]
+Validation round:   0%|          | 0/3 [00:00<?, ?batch/s][A
+Validation round:  33%|███▎      | 1/3 [00:00<00:01,  1.19batch/s][A
+Validation round:  67%|██████▋   | 2/3 [00:01<00:00,  2.20batch/s][A
+Validation round: 100%|██████████| 3/3 [00:01<00:00,  3.03batch/s][A
+                                                                  [AINFO: Validation Dice score: 0.5740741491317749
+Epoch 2/10:  21%|██▏       | 112/527 [00:06<00:32, 12.71img/s, loss (batch)=2.51]Epoch 2/10:  21%|██▏       | 112/527 [00:07<00:32, 12.71img/s, loss (batch)=2.5] Epoch 2/10:  24%|██▍       | 128/527 [00:07<00:24, 16.09img/s, loss (batch)=2.5]Epoch 2/10:  24%|██▍       | 128/527 [00:07<00:24, 16.09img/s, loss (batch)=2.48]Epoch 2/10:  27%|██▋       | 144/527 [00:07<00:19, 19.63img/s, loss (batch)=2.48]Epoch 2/10:  27%|██▋       | 144/527 [00:08<00:19, 19.63img/s, loss (batch)=2.52]
+Validation round:   0%|          | 0/3 [00:00<?, ?batch/s][A
+Validation round:  33%|███▎      | 1/3 [00:00<00:01,  1.17batch/s][A
+Validation round:  67%|██████▋   | 2/3 [00:01<00:00,  2.21batch/s][A
+Validation round: 100%|██████████| 3/3 [00:01<00:00,  3.11batch/s][A
+                                                                  [AINFO: Validation Dice score: 0.5277777910232544
+Epoch 2/10:  30%|███       | 160/527 [00:10<00:29, 12.49img/s, loss (batch)=2.52]Epoch 2/10:  30%|███       | 160/527 [00:10<00:29, 12.49img/s, loss (batch)=2.53]Epoch 2/10:  33%|███▎      | 176/527 [00:10<00:22, 15.67img/s, loss (batch)=2.53]Epoch 2/10:  33%|███▎      | 176/527 [00:10<00:22, 15.67img/s, loss (batch)=2.5] Epoch 2/10:  36%|███▋      | 192/527 [00:10<00:17, 19.08img/s, loss (batch)=2.5]Epoch 2/10:  36%|███▋      | 192/527 [00:11<00:17, 19.08img/s, loss (batch)=2.51]
+Validation round:   0%|          | 0/3 [00:00<?, ?batch/s][A
+Validation round:  33%|███▎      | 1/3 [00:00<00:01,  1.18batch/s][A
+Validation round:  67%|██████▋   | 2/3 [00:01<00:00,  2.22batch/s][A
+Validation round: 100%|██████████| 3/3 [00:01<00:00,  3.09batch/s][A
+                                                                  [AINFO: Validation Dice score: 0.4861111640930176
+Epoch 2/10:  39%|███▉      | 208/527 [00:13<00:26, 12.00img/s, loss (batch)=2.51]Epoch 2/10:  39%|███▉      | 208/527 [00:13<00:26, 12.00img/s, loss (batch)=2.51]Epoch 2/10:  43%|████▎     | 224/527 [00:13<00:20, 15.13img/s, loss (batch)=2.51]Epoch 2/10:  43%|████▎     | 224/527 [00:14<00:20, 15.13img/s, loss (batch)=2.5] Epoch 2/10:  46%|████▌     | 240/527 [00:14<00:15, 18.48img/s, loss (batch)=2.5]Epoch 2/10:  46%|████▌     | 240/527 [00:14<00:15, 18.48img/s, loss (batch)=2.5]
+Validation round:   0%|          | 0/3 [00:00<?, ?batch/s][A
+Validation round:  33%|███▎      | 1/3 [00:00<00:01,  1.45batch/s][A
+Validation round:  67%|██████▋   | 2/3 [00:00<00:00,  2.61batch/s][A
+Validation round: 100%|██████████| 3/3 [00:01<00:00,  3.51batch/s][A
+                                                                  [AINFO: Validation Dice score: 0.4722222685813904
+Epoch 2/10:  49%|████▊     | 256/527 [00:16<00:21, 12.59img/s, loss (batch)=2.5]Epoch 2/10:  49%|████▊     | 256/527 [00:16<00:21, 12.59img/s, loss (batch)=2.51]Epoch 2/10:  52%|█████▏    | 272/527 [00:16<00:16, 15.76img/s, loss (batch)=2.51]Epoch 2/10:  52%|█████▏    | 272/527 [00:17<00:16, 15.76img/s, loss (batch)=2.51]Epoch 2/10:  55%|█████▍    | 288/527 [00:17<00:12, 19.08img/s, loss (batch)=2.51]Epoch 2/10:  55%|█████▍    | 288/527 [00:17<00:12, 19.08img/s, loss (batch)=2.5] 
+Validation round:   0%|          | 0/3 [00:00<?, ?batch/s][A
+Validation round:  33%|███▎      | 1/3 [00:00<00:01,  1.38batch/s][A
+Validation round:  67%|██████▋   | 2/3 [00:00<00:00,  2.52batch/s][A
+Validation round: 100%|██████████| 3/3 [00:01<00:00,  3.42batch/s][A
+                                                                  [AINFO: Validation Dice score: 0.4444445073604584
+Epoch 2/10:  58%|█████▊    | 304/527 [00:19<00:17, 13.01img/s, loss (batch)=2.5]Epoch 2/10:  58%|█████▊    | 304/527 [00:19<00:17, 13.01img/s, loss (batch)=2.5]Epoch 2/10:  61%|██████    | 320/527 [00:19<00:12, 16.21img/s, loss (batch)=2.5]Epoch 2/10:  61%|██████    | 320/527 [00:20<00:12, 16.21img/s, loss (batch)=2.49]Epoch 2/10:  64%|██████▍   | 336/527 [00:20<00:09, 19.57img/s, loss (batch)=2.49]Epoch 2/10:  64%|██████▍   | 336/527 [00:20<00:09, 19.57img/s, loss (batch)=2.5] 
+Validation round:   0%|          | 0/3 [00:00<?, ?batch/s][A
+Validation round:  33%|███▎      | 1/3 [00:00<00:01,  1.36batch/s][A
+Validation round:  67%|██████▋   | 2/3 [00:00<00:00,  2.48batch/s][A
+Validation round: 100%|██████████| 3/3 [00:01<00:00,  3.38batch/s][A
+                                                                  [AINFO: Validation Dice score: 0.4513889253139496
+Epoch 2/10:  67%|██████▋   | 352/527 [00:22<00:13, 12.95img/s, loss (batch)=2.5]Epoch 2/10:  67%|██████▋   | 352/527 [00:22<00:13, 12.95img/s, loss (batch)=2.51]Epoch 2/10:  70%|██████▉   | 368/527 [00:22<00:09, 16.12img/s, loss (batch)=2.51]Epoch 2/10:  70%|██████▉   | 368/527 [00:23<00:09, 16.12img/s, loss (batch)=2.51]Epoch 2/10:  73%|███████▎  | 384/527 [00:23<00:07, 19.48img/s, loss (batch)=2.51]Epoch 2/10:  73%|███████▎  | 384/527 [00:23<00:07, 19.48img/s, loss (batch)=2.51]
+Validation round:   0%|          | 0/3 [00:00<?, ?batch/s][A
+Validation round:  33%|███▎      | 1/3 [00:00<00:01,  1.31batch/s][A
+Validation round:  67%|██████▋   | 2/3 [00:00<00:00,  2.39batch/s][A
+Validation round: 100%|██████████| 3/3 [00:01<00:00,  3.28batch/s][A
+                                                                  [AINFO: Validation Dice score: 0.4444445073604584
+Epoch 2/10:  76%|███████▌  | 400/527 [00:25<00:10, 12.62img/s, loss (batch)=2.51]Epoch 2/10:  76%|███████▌  | 400/527 [00:25<00:10, 12.62img/s, loss (batch)=2.51]Epoch 2/10:  79%|███████▉  | 416/527 [00:26<00:07, 15.75img/s, loss (batch)=2.51]Epoch 2/10:  79%|███████▉  | 416/527 [00:26<00:07, 15.75img/s, loss (batch)=2.52]Epoch 2/10:  82%|████████▏ | 432/527 [00:26<00:04, 19.09img/s, loss (batch)=2.52]Epoch 2/10:  82%|████████▏ | 432/527 [00:26<00:04, 19.09img/s, loss (batch)=2.53]
+Validation round:   0%|          | 0/3 [00:00<?, ?batch/s][A
+Validation round:  33%|███▎      | 1/3 [00:00<00:01,  1.20batch/s][A
+Validation round:  67%|██████▋   | 2/3 [00:01<00:00,  2.26batch/s][A
+Validation round: 100%|██████████| 3/3 [00:01<00:00,  3.11batch/s][A
+                                                                  [AINFO: Validation Dice score: 0.4444445073604584
+Epoch 2/10:  85%|████████▌ | 448/527 [00:28<00:06, 12.20img/s, loss (batch)=2.53]Epoch 2/10:  85%|████████▌ | 448/527 [00:29<00:06, 12.20img/s, loss (batch)=2.51]Epoch 2/10:  88%|████████▊ | 464/527 [00:29<00:04, 15.30img/s, loss (batch)=2.51]Epoch 2/10:  88%|████████▊ | 464/527 [00:29<00:04, 15.30img/s, loss (batch)=2.51]Epoch 2/10:  91%|█████████ | 480/527 [00:29<00:02, 18.58img/s, loss (batch)=2.51]Epoch 2/10:  91%|█████████ | 480/527 [00:30<00:02, 18.58img/s, loss (batch)=2.5] 
+Validation round:   0%|          | 0/3 [00:00<?, ?batch/s][A
+Validation round:  33%|███▎      | 1/3 [00:00<00:01,  1.36batch/s][A
+Validation round:  67%|██████▋   | 2/3 [00:00<00:00,  2.48batch/s][A
+Validation round: 100%|██████████| 3/3 [00:01<00:00,  3.33batch/s][A
+                                                                  [AINFO: Validation Dice score: 0.4375000596046448
+Epoch 2/10:  94%|█████████▍| 496/527 [00:32<00:02, 12.26img/s, loss (batch)=2.5]Epoch 2/10:  94%|█████████▍| 496/527 [00:32<00:02, 12.26img/s, loss (batch)=2.5]Epoch 2/10:  97%|█████████▋| 512/527 [00:32<00:00, 15.35img/s, loss (batch)=2.5]Epoch 2/10:  97%|█████████▋| 512/527 [00:32<00:00, 15.35img/s, loss (batch)=2.5]Epoch 2/10: 100%|██████████| 527/527 [00:32<00:00, 18.35img/s, loss (batch)=2.5]Epoch 2/10: 100%|██████████| 527/527 [00:33<00:00, 18.35img/s, loss (batch)=2.51]
+Validation round:   0%|          | 0/3 [00:00<?, ?batch/s][A
+Validation round:  33%|███▎      | 1/3 [00:00<00:01,  1.33batch/s][A
+Validation round:  67%|██████▋   | 2/3 [00:00<00:00,  2.39batch/s][A
+Validation round: 100%|██████████| 3/3 [00:01<00:00,  3.27batch/s][A
+                                                                  [AINFO: Validation Dice score: 0.4074074625968933
+Epoch 2/10: 100%|██████████| 527/527 [00:35<00:00, 15.00img/s, loss (batch)=2.51]
+INFO: Trained model file trained-models/unet-model-scale0.6-batchsize16-585samples.pth saved!
+Epoch 3/10:   0%|          | 0/527 [00:00<?, ?img/s]Epoch 3/10:   3%|▎         | 16/527 [00:00<00:27, 18.71img/s]Epoch 3/10:   3%|▎         | 16/527 [00:01<00:27, 18.71img/s, loss (batch)=2.5]Epoch 3/10:   6%|▌         | 32/527 [00:01<00:18, 26.67img/s, loss (batch)=2.5]Epoch 3/10:   6%|▌         | 32/527 [00:01<00:18, 26.67img/s, loss (batch)=2.51]Epoch 3/10:   9%|▉         | 48/527 [00:01<00:15, 30.72img/s, loss (batch)=2.51]Epoch 3/10:   9%|▉         | 48/527 [00:01<00:15, 30.72img/s, loss (batch)=2.52]
+Validation round:   0%|          | 0/3 [00:00<?, ?batch/s][A
+Validation round:  33%|███▎      | 1/3 [00:00<00:01,  1.20batch/s][A
+Validation round:  67%|██████▋   | 2/3 [00:00<00:00,  2.27batch/s][A
+Validation round: 100%|██████████| 3/3 [00:01<00:00,  3.16batch/s][A
+                                                                  [AINFO: Validation Dice score: 0.39814823865890503
+Epoch 3/10:  12%|█▏        | 64/527 [00:04<00:36, 12.85img/s, loss (batch)=2.52]Epoch 3/10:  12%|█▏        | 64/527 [00:04<00:36, 12.85img/s, loss (batch)=2.51]Epoch 3/10:  15%|█▌        | 80/527 [00:04<00:26, 16.87img/s, loss (batch)=2.51]Epoch 3/10:  15%|█▌        | 80/527 [00:04<00:26, 16.87img/s, loss (batch)=2.51]Epoch 3/10:  18%|█▊        | 96/527 [00:04<00:20, 20.77img/s, loss (batch)=2.51]Epoch 3/10:  18%|█▊        | 96/527 [00:05<00:20, 20.77img/s, loss (batch)=2.53]
+Validation round:   0%|          | 0/3 [00:00<?, ?batch/s][A
+Validation round:  33%|███▎      | 1/3 [00:00<00:01,  1.45batch/s][A
+Validation round:  67%|██████▋   | 2/3 [00:00<00:00,  2.61batch/s][A
+Validation round: 100%|██████████| 3/3 [00:01<00:00,  3.50batch/s][A
+                                                                  [AINFO: Validation Dice score: 0.3958333730697632
+Epoch 3/10:  21%|██▏       | 112/527 [00:07<00:31, 13.03img/s, loss (batch)=2.53]Epoch 3/10:  21%|██▏       | 112/527 [00:07<00:31, 13.03img/s, loss (batch)=2.52]Epoch 3/10:  24%|██▍       | 128/527 [00:07<00:24, 16.47img/s, loss (batch)=2.52]Epoch 3/10:  24%|██▍       | 128/527 [00:07<00:24, 16.47img/s, loss (batch)=2.5] Epoch 3/10:  27%|██▋       | 144/527 [00:07<00:19, 19.99img/s, loss (batch)=2.5]Epoch 3/10:  27%|██▋       | 144/527 [00:08<00:19, 19.99img/s, loss (batch)=2.51]
+Validation round:   0%|          | 0/3 [00:00<?, ?batch/s][A
+Validation round:  33%|███▎      | 1/3 [00:00<00:01,  1.13batch/s][A
+Validation round:  67%|██████▋   | 2/3 [00:01<00:00,  2.17batch/s][A
+Validation round: 100%|██████████| 3/3 [00:01<00:00,  3.06batch/s][A
+                                                                  [AINFO: Validation Dice score: 0.39120376110076904
+Epoch 3/10:  30%|███       | 160/527 [00:10<00:29, 12.27img/s, loss (batch)=2.51]Epoch 3/10:  30%|███       | 160/527 [00:10<00:29, 12.27img/s, loss (batch)=2.48]Epoch 3/10:  33%|███▎      | 176/527 [00:10<00:22, 15.46img/s, loss (batch)=2.48]Epoch 3/10:  33%|███▎      | 176/527 [00:11<00:22, 15.46img/s, loss (batch)=2.51]Epoch 3/10:  36%|███▋      | 192/527 [00:11<00:17, 18.86img/s, loss (batch)=2.51]Epoch 3/10:  36%|███▋      | 192/527 [00:11<00:17, 18.86img/s, loss (batch)=2.49]
+Validation round:   0%|          | 0/3 [00:00<?, ?batch/s][A
+Validation round:  33%|███▎      | 1/3 [00:00<00:01,  1.20batch/s][A
+Validation round:  67%|██████▋   | 2/3 [00:01<00:00,  2.23batch/s][A
+Validation round: 100%|██████████| 3/3 [00:01<00:00,  3.09batch/s][A
+                                                                  [AINFO: Validation Dice score: 0.39120376110076904
+Epoch 3/10:  39%|███▉      | 208/527 [00:13<00:25, 12.38img/s, loss (batch)=2.49]Epoch 3/10:  39%|███▉      | 208/527 [00:13<00:25, 12.38img/s, loss (batch)=2.49]Epoch 3/10:  43%|████▎     | 224/527 [00:13<00:19, 15.52img/s, loss (batch)=2.49]Epoch 3/10:  43%|████▎     | 224/527 [00:14<00:19, 15.52img/s, loss (batch)=2.5] Epoch 3/10:  46%|████▌     | 240/527 [00:14<00:15, 18.84img/s, loss (batch)=2.5]Epoch 3/10:  46%|████▌     | 240/527 [00:14<00:15, 18.84img/s, loss (batch)=2.48]
+Validation round:   0%|          | 0/3 [00:00<?, ?batch/s][A
+Validation round:  33%|███▎      | 1/3 [00:00<00:01,  1.18batch/s][A
+Validation round:  67%|██████▋   | 2/3 [00:01<00:00,  2.22batch/s][A
+Validation round: 100%|██████████| 3/3 [00:01<00:00,  3.10batch/s][A
+                                                                  [AINFO: Validation Dice score: 0.3750000596046448
+Epoch 3/10:  49%|████▊     | 256/527 [00:16<00:22, 12.00img/s, loss (batch)=2.48]Epoch 3/10:  49%|████▊     | 256/527 [00:17<00:22, 12.00img/s, loss (batch)=2.51]Epoch 3/10:  52%|█████▏    | 272/527 [00:17<00:16, 15.09img/s, loss (batch)=2.51]Epoch 3/10:  52%|█████▏    | 272/527 [00:17<00:16, 15.09img/s, loss (batch)=2.52]Epoch 3/10:  55%|█████▍    | 288/527 [00:17<00:13, 18.38img/s, loss (batch)=2.52]Epoch 3/10:  55%|█████▍    | 288/527 [00:17<00:13, 18.38img/s, loss (batch)=2.5] 
+Validation round:   0%|          | 0/3 [00:00<?, ?batch/s][A
+Validation round:  33%|███▎      | 1/3 [00:00<00:01,  1.14batch/s][A
+Validation round:  67%|██████▋   | 2/3 [00:01<00:00,  2.15batch/s][A
+Validation round: 100%|██████████| 3/3 [00:01<00:00,  3.04batch/s][A
+                                                                  [AINFO: Validation Dice score: 0.3865741193294525
+Epoch 3/10:  58%|█████▊    | 304/527 [00:20<00:18, 12.03img/s, loss (batch)=2.5]Epoch 3/10:  58%|█████▊    | 304/527 [00:20<00:18, 12.03img/s, loss (batch)=2.49]Epoch 3/10:  61%|██████    | 320/527 [00:20<00:13, 15.13img/s, loss (batch)=2.49]Epoch 3/10:  61%|██████    | 320/527 [00:20<00:13, 15.13img/s, loss (batch)=2.5] Epoch 3/10:  64%|██████▍   | 336/527 [00:20<00:10, 18.38img/s, loss (batch)=2.5]Epoch 3/10:  64%|██████▍   | 336/527 [00:21<00:10, 18.38img/s, loss (batch)=2.51]
+Validation round:   0%|          | 0/3 [00:00<?, ?batch/s][A
+Validation round:  33%|███▎      | 1/3 [00:00<00:01,  1.41batch/s][A
+Validation round:  67%|██████▋   | 2/3 [00:00<00:00,  2.57batch/s][A
+Validation round: 100%|██████████| 3/3 [00:01<00:00,  3.47batch/s][A
+                                                                  [AINFO: Validation Dice score: 0.3796297013759613
+Epoch 3/10:  67%|██████▋   | 352/527 [00:23<00:14, 12.43img/s, loss (batch)=2.51]Epoch 3/10:  67%|██████▋   | 352/527 [00:23<00:14, 12.43img/s, loss (batch)=2.52]Epoch 3/10:  70%|██████▉   | 368/527 [00:23<00:10, 15.54img/s, loss (batch)=2.52]Epoch 3/10:  70%|██████▉   | 368/527 [00:23<00:10, 15.54img/s, loss (batch)=2.5] Epoch 3/10:  73%|███████▎  | 384/527 [00:24<00:07, 18.88img/s, loss (batch)=2.5]Epoch 3/10:  73%|███████▎  | 384/527 [00:24<00:07, 18.88img/s, loss (batch)=2.49]
+Validation round:   0%|          | 0/3 [00:00<?, ?batch/s][A
+Validation round:  33%|███▎      | 1/3 [00:00<00:01,  1.27batch/s][A
+Validation round:  67%|██████▋   | 2/3 [00:00<00:00,  2.35batch/s][A
+Validation round: 100%|██████████| 3/3 [00:01<00:00,  3.24batch/s][A
+                                                                  [AINFO: Validation Dice score: 0.3726852536201477
+Epoch 3/10:  76%|███████▌  | 400/527 [00:26<00:10, 12.31img/s, loss (batch)=2.49]Epoch 3/10:  76%|███████▌  | 400/527 [00:26<00:10, 12.31img/s, loss (batch)=2.51]Epoch 3/10:  79%|███████▉  | 416/527 [00:26<00:07, 15.41img/s, loss (batch)=2.51]Epoch 3/10:  79%|███████▉  | 416/527 [00:27<00:07, 15.41img/s, loss (batch)=2.53]Epoch 3/10:  82%|████████▏ | 432/527 [00:27<00:05, 18.77img/s, loss (batch)=2.53]Epoch 3/10:  82%|████████▏ | 432/527 [00:27<00:05, 18.77img/s, loss (batch)=2.5] 
+Validation round:   0%|          | 0/3 [00:00<?, ?batch/s][A
+Validation round:  33%|███▎      | 1/3 [00:00<00:01,  1.19batch/s][A
+Validation round:  67%|██████▋   | 2/3 [00:01<00:00,  2.20batch/s][A
+Validation round: 100%|██████████| 3/3 [00:01<00:00,  3.04batch/s][A
+                                                                  [AINFO: Validation Dice score: 0.3865741491317749
+Epoch 3/10:  85%|████████▌ | 448/527 [00:29<00:06, 12.33img/s, loss (batch)=2.5]Epoch 3/10:  85%|████████▌ | 448/527 [00:29<00:06, 12.33img/s, loss (batch)=2.49]Epoch 3/10:  88%|████████▊ | 464/527 [00:30<00:04, 15.44img/s, loss (batch)=2.49]Epoch 3/10:  88%|████████▊ | 464/527 [00:30<00:04, 15.44img/s, loss (batch)=2.5] Epoch 3/10:  91%|█████████ | 480/527 [00:30<00:02, 18.75img/s, loss (batch)=2.5]Epoch 3/10:  91%|█████████ | 480/527 [00:30<00:02, 18.75img/s, loss (batch)=2.5]
