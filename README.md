@@ -1,7 +1,7 @@
 # U-Net: Semantic segmentation with PyTorch, Segment a car into 10-class car parts
 <img src="https://raw.githubusercontent.com/zhangfaen/common/master/unet-logo.png" />
 
-![input and output for a random image in the test dataset](https://raw.githubusercontent.com/zhangfaen/common/master/tooth-and-mask.png)
+![input and output for a random image in the test dataset](https://raw.githubusercontent.com/zhangfaen/unet-segment-car-to-10-class-carparts/main/sample.png)
 
 
 Customized implementation of the [U-Net](https://arxiv.org/abs/1505.04597) in PyTorch for Roboflow's [Tooth Detection](https://universe.roboflow.com/minkyu/tooth-detection-myvcg/) from high definition images.
